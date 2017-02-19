@@ -1,0 +1,326 @@
+HTML - Structure
+CSS - Styling
+
+Although CSS is a different language than HTML, it is possible to write CSS code directly within an HTML file
+The <style> element allows you to write CSS code between its opening and closing tags.
+The style element must be placed inside of the head.
+Once the style element is placed in the web page's head, we can begin writing CSS code.
+	<head>
+		<style>
+			h2 {
+			font-family: Arial;
+			}
+		</style>
+	</head>
+Although we can write CSS code within HTML files using the style element, it can make the code difficult to read/maintain.
+When CSS code is placed in an HTML file, you rist two things:
+	Creating a large HTML file that is difficult to read/maintain.
+	Trouble maintaining a clear distinction between web page structure (HTML) and web page styling (CSS)
+Fortunately, there is a solution to help avoid creating large HTML files that mix in CSS code:
+	a CSS file!
+You can create a CSS file by using the .css file name extention, like so: style.css
+With a CSS file, you can write all the CSS code needed without having to sacrificce readability and maintainability of your HTML file.
+When creating a separate CSS file, you will need to link the HTML and CSS file together.
+You can use the <link> element to link HTML and CSS files together.
+The link element must be placed within the head of the HTML file.
+The link element is a self closing tag that requires the following three attributes:
+	href - like the anchor element, the value must be the address/path to the CSS file
+	type - this attribute describes the type of doc that you are linking to. If it's a CSS file, it should be set to text/css
+	rel - this attribute describes the relationship between HTML and CSS files. Since we are linking to a stylesheet, the value should be set to stylesheet
+The link element will look like the following:
+	<link href="https://www.codecademy.com/stylesheets/style.css" type="text/css" rel="stylesheet">
+Note that the path to the stylesheet is a URL.
+URL's are one way of linking a stylesheet.
+If the CSS file is stored in the same directory as your HTML file, then you can specify a relative path instead of a URL:
+	<link href="/style.css" type="text/css" rel="stylesheet">
+This is the more common way to link stylesheets.
+
+Let's review what you've learned so far:
+	1. HTML and CSS are kept in separate files in order to keep code maintainable and readable, as well as keep structure separate from styling.
+	2. The <style> element allows you to write CSS code within an HTML file.
+	3. A CSS stylesheet can be linked to an HTML file using the <link> element, which requires three attributes:
+    	href - set equal to the path of the CSS file.
+    	type - set equal to text/css.
+    	rel - set equal to stylesheet.
+	In this lesson, you learned about the two different places in which you can write CSS code, but you didn't write any CSS code at all.
+
+To style an HTML element using CSS, you must first select the element in the CSS file.
+For example, you can select a <p> element by using the CSS code:
+	p {
+
+	}
+Note that the CSS selector essentially matches the HTML tag without the angle brackets.
+The p selector above will select ALL <p> elements on the web page. Later we will learn how to select more specific elements.
+To actually style a selector, you will need to specify two things:
+	Property - the property you'd like to style that element, such as size, color, etc.
+	Value - the value of the property, such as 18px font, color blue, etc.
+Here is an example:
+	h1 {
+		color: Blue;
+	}
+In the example above, the <h1> element has been selected.
+Inside the selector, the header's color property is set to Blue, so the header will appear with the color blue in the browser.
+The line "color: Blue;" is called a CSS declaration.
+A declaration consists of a property, a value, and a semicolon to end the declaration.
+The entire snippet of the code in the example above is called a CSS rule.
+You can change the font size with the property: font-size
+	font-size: 18px;
+
+You can select multiple elements at once so that you can save time styling a shared property:
+	h1, h2, p {
+		color: Green
+	}
+In the example above, the h1, h2, and p elements have been selected and styled to appear green using a multiple element selector.
+A multiple element selector can save you time when you want to style the same property across many elements.
+
+There is a special selector that can instantly select every single element on the web page: the universal selector.
+	* {
+		font-family: Arial;
+	}
+In the example above, the universal selector * is used to select every element on the page and set its font to Arial.
+What makes the universal selector so special? If all elements require the same styling, it's more efficient to use the universal selector.
+Then afterwards, you can modify that styling specific elements that don't require it.
+
+Just like HTML, CSS follows certain best practices for spacing and indentation.
+One space should be used between the selector and the opening curly brace.
+No extra spaces should exist between open and close curly braces and CSS declarations. AKA, no blank lins inside CSS rules.
+Two spaces of indentation should be used for CSS declarations.
+One line of spacing should exist between CSS rules.
+Proper spacing and indentation helps keep CSS code maintainable and readable for you and other developers.
+
+Just like HTML, you can leave comments in CSS files.
+CSS comments begin with /* and end with */
+	/* Paragraph styling */
+Including comments help you and others understand your code if you decide to come back to it at a later time.
+Comments also allow you to experiment with new code without deleting old code, by commenting out the old code.
+
+Let's review what you've learned so far:
+
+1. A CSS selector targets an HTML element.
+2. CSS declarations style HTML elements. Declarations must contain the following two things:
+    property - the property you want to style.
+    value - the value for the property you are styling.
+3. CSS declarations must end in a semicolon (;)
+4. A CSS rule consists of a CSS selector and the declarations inside of the selector.
+5. Multiple element selectors can be used to style multiple elements at once.
+6. Comments keep code easy to read and allow you to experiment with new code without having to remove old code.
+7. CSS follows certain best practices for spacing and indentation:
+    One line of spacing between a selector and the opening curly brace.
+    No spacing between CSS declarations and the opening and closing curly braces of the CSS rule.
+    Two spaces of indentation for CSS declarations.
+    One line of spacing between CSS rules.
+
+Color plays a big role in creating user experience (UX) for web pages.
+Color can affect the following design aspects:
+	The foreground color
+	The background color
+The foreground color is the color the element appears in.
+So when a heading is styled to appear green, the foreground color of the heading has been styled.
+When a heading is styled so that the background appears black, the background color of the heading has been styled.
+In CSS, these two design aspects can be styled with the following two properties:
+	color - styles the element's foreground color
+	background-color - styles the element's background color
+For example:
+	h1 {
+		color: Red;
+		background-color: Blue;
+	}
+Over the past few exercises, you've been using color names to change colors, such as red, blue, and green.
+These are known as named colors, and there are a total of 147 of them.
+
+Although 147 may seem like a lot, it is small compated to the full spectrum of colors CSS supports.
+To access these other colors, you have the option of using RGB colors.
+RGB colors work by mixing together different amounts of red (R), green (G), and blue (B).
+Each color can take on 1 of a possible 256 different values (between 0 and 255)
+To use RGB colors, you can use the rbg() value when styling a color:
+	h1 {
+		color: rgb(123, 20, 233);
+		background-color: rgb(99, 21, 127);
+	}
+To determine what rgb values you need for a specific color, you can use a color picker you find through a google search.
+
+There's an additional way to specify colors in CSS: hexadecimal color codes (or hex color codes for short)
+When specifying an RGB color mixture, the values are in base 10.
+Hex color codes, however, use base 16 (or hexadecimal base)
+	h1 {
+		color: #09AA34;
+	}
+When read from left to right, each two characters responds to a value for red, green, and blue, respectively.
+For the example above, 09 refers the the value for red, AA is the value for green, and 34 is the value for blue.
+All hex color codes begin with a # character.
+RGB and hex color codes, although look different, are just different ways of displaying the same thing.
+When the hex color code is composed entirely of the same characters, it can be abbreviated:
+	h1 {
+		color: #FFFFFF;
+		color: #FFF; /* This is the same color as above */
+	}
+
+	h2 {
+		color: #AA33BB;
+		color: #A3B; /* This is the same color as above */
+	}
+
+The current version of CSS (CSS3) introduces a new way to specify colors using HSL colors.
+	h1 {
+		hsl(350, 58.8%, 42%)
+	}
+HSL stands for Hue, Saturation, and Lightness.
+	Hue - the technical term for color. In HSL, hue is represented on a color wheel, and has a value between 0 and 360.
+	Saturation - the amount of gray in a given color. Saturation is specified using a percentage, from 0% to 100%
+	Lightness - the amount of white in a given color. Lightness is specified using a percentage, from 0% to 100%
+Since HSL is supported by CSS3, older browsers may not support it.
+
+Although RGB and hex color codes can be used to represent the same thing, there is one thing RGB has that hex color codes does not.
+Opacy
+	Opacy - A measure of how transparent a color is.
+To modify opacy in RGB colors, CSS offers the rgba() value, which is different from the regular rgb() value.
+the "a" character in rgba() is known as the alpha value. It can be a number between 0 and 1, inclusive.
+	h1 {
+		color: rgba(123, 88, 9, 0.5);
+	}
+In the example above, the opacy is set to 50%.
+The alpha value can also be used for HSL colors, using hsla()
+	h1 {
+		color: hsla(239, 45%, 22%, 0.4);
+	}
+
+It's important to keep in mind that not all users browse the internet with the same browser, or the same version.
+How does this affect web development? Some older browsers will not be able to support the new features of HTML and CSS.
+For example, many older browsers won't support RGBa, HSL, or HSLa.
+Because of this, we must include redundant color options in our CSS code that can cater to many different browsers.
+Specifically, we can add multiple CSS color declarations, just in case a user's browser can't support a certain declaration.
+	h1 {
+		color: rgb(11, 20, 130);
+		color: rgba(11, 20, 130, .4);
+	}
+In CSS, the latter of multiple declarations take priority.
+Using redundant declarations allow you to support as many users as possible across multiple versions of different browsers.
+
+Let's review what you've learned so far:
+    Foreground color refers to the actual color of an element, styled with the color property.
+    Background color refers to the color behind an element, styled with the background-color property.
+    There are 147 named colors available.
+    RGB and hexadecimal colors offer over 16 million color possibilities.
+    HSL is a new way of defining colors in CSS3.
+    You can modify the opacity of a color with RGBa or HSLa colors.
+    Not all browsers support newer CSS features, like opacity or HSL, so additional declarations should be made to support a wide audience of users.
+    There are many color picker resources available on the Internet to help you select specific colors, as well as provide colors in different formats.
+
+In addition to changing font color, you can also change the type of font to increase the user experience (UX)
+The phrase "type of font" refers to the technical term typeface, or font family.
+To change the typeface of text on your web page, you can use the font-family property.
+	h1 {
+		font-family: Arial;
+	}
+When setting the typeface for a web page, keep the following points in mind:
+	The font specified must be installed on the user's computer for the font to display when visiting the web page.
+	If a typeface is not specified, HTML's default typeface is Times New Roman.
+	It's good to limit the number of typefaces on a web page to 2 or 3.
+	When the name of a typeface is more than one word, it must be enclosed in double quotes
+		h1 {
+			font-family: "Times New Roman";
+		}
+The practice of typography have developed two different font types:
+	serif - The letters in these fonts have extra details at the ends of each letter. Ex: Times New Roman, Georgia
+	Sans-Serif - The letters have straight, flat edges on the ends of each letter. Ex: Arial, Helvetica
+Serif fonts are better for print and Sans-Serif fonts are better for web pages, in a general sense.
+
+We learned that a user's computer must have the font installed for their browser to display the font correctly, but what if they don't have the font installed?
+Most computers have a set of small typefaces pre-installed, including Times New Roman and Arial.
+When the stylesheet specifies a font not installed on a computer, the pre-installed fonts can be used as a fallback font for the user.
+To use fallback fonts, the following syntax is required:
+	h1 {
+		font-family: Garamond, Times, serif;
+	}
+In this example, the Garamond font is specified to be used for all h1 elements.
+If Garamond is not available, use the Times font.
+If Times is not available as well, use any serif font pre-installed on the user's computer.
+The fonts specified after the first font are the fallback fonts.
+There is another way to specify fonts so that you don't have to predict what fonts are installed on a user's computer.
+One way is to use Google Fonts (a directory of thousands of fonts that are free to use by anyone)
+To use these fonts, you can link a specific font to your HTML code and use it immediately in your stylesheet.
+Because the HTML file directly links to the Google Font, a user's browser can display the typeface you specify.
+To use a Google Font, you can use a <link> element, just like you did for the CSS stylesheet.
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Raleway" type="text/css" rel="stylesheet">
+	</head>
+In the example above, href is the URL link to where the typeface is located on Google Fonts.
+You can now use the font just as you would use any other font.
+	h1 {
+		font-family: Raleway, Georgia, serif;
+	}
+
+Changing the typeface is not the only way to customize text. You can also change the font size with the font-size property
+	h1 {
+		font-size: 18px;
+	}
+px is just the unit to measure font size. px = pixels
+There are three ways to measure font sizes:
+	px - the unit for pixels (or points). Pixels are used to set the exact size of an element. (font-size: 18px;)
+	em - pronounced "em". An em is equal to the width of the letter "m". They change size of a text relative to the parent's size of text (font-size: 1.3em;)
+	% - Percents are also a relative unit of measurement. Normal text is usually 16px. Setting the % to 200% would mean 32px fonts. (font-size: 150%;)
+
+Having too little space between lines of text can make reading paragraphs difficult to read.
+To avoid this problem, you can modify the spacing between lines of text with the line-height property.
+	p {
+		line-height: 1.5em;
+	}
+When modifying the light height, you are manipulating the leading (pronounced ledding) of the font.
+When the line height increases, the spacing between lines of text is increased.
+The line height can be modified using px or em, but em is prefered since em offers space reletive to the size of the text on the web page.
+You can also increase the spacing between words in a body of text, known as word spacing by using the word-spacing property.
+	h1 {
+		word-spacing: 0.3em;
+	}
+The default amount of space between words is usually 0.25em.
+As with the line height, em is the prefered unit of measurement when modifying word spacing.
+We can also alter the spacing between letters, known as kerning.
+The kerning can be adjusted using the letter-spacing property in CSS.
+	h1 {
+		letter-spacing: 0.3em;
+	}
+
+You've probably noticed bolded text on many different web sites. To bold a text, use the font-weight property.
+	p {
+		font-weight: bold;
+	}
+In the example above, all paragraphs on the web page will appear bolded.
+font-weight also has a second valid value: normal.
+Normal is used if we made the whole web page bold and wanted to unbold certain elements.
+Earlier, we linked a Google Font with the url: <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">
+The "100" after "Roboto" specifies the font weight you'd like to use. 100 - thin. 200-400 - normal. 500-900 - bold.
+So instead of using "bold" or "normal" to specify font weight, you can use these values as well.
+
+You can also italicize words using the font-style property
+	h1 {
+		font-style: italic;
+	}
+
+Text can be styled to appear in either all uppercase or all lowercase with the text-transform property.
+	h1 {
+		text-transform: uppercase;
+	}
+This code makes all h1 elements appear in uppercase, regardless of what was inputted in the HTML code.
+The purpose of transforming text in CSS instead of typing it out in HTML is to make the HTML code more readable.
+
+Text is aligned by default to the left side of the browser.
+To move/align text, we can use the text-align property.
+	h1 {
+		text-align: right;
+	}
+The text-align value can be either set to: left, right, or center.
+
+Let's review what you've learned so far:
+    The font-family property changes the typeface of text.
+    Serif fonts have extra details on the ends of each letter. Sans-Serif fonts do not.
+    Fallback fonts are used when a certain font is not installed on a user's computer.
+    Google Fonts provides free fonts that can be used in an HTML file with the <link> element.
+    Font size can be specified using pixels, ems, or percentages.
+    The vertical spacing between lines of text can be modified with the line-spacing property.
+    The horizontal spacing between words can be modified with the word-spacing property.
+    The spacing between letters, the kernel, can be modified with the letter-spacing property.
+    Text can appear bold with the font-weight property.
+    Text can appear in italics with the font-style property.
+    Text can appear in all uppercase or all lowercase with the text-transform property.
+    Text can be aligned with the text-align property.
+

@@ -1,0 +1,150 @@
+HTML - Hyper Text Markup Language
+CSS - Cascading Style Sheets
+Angle brackets - In HTML, the characters "<" and ">" are known as angle brackets
+HTML element - HTML code that lives inside of angle brackets
+Opening tag - The first, or oppening, tag used to start an HTML element
+Closing tag - The second, or closing, tag used to end an HTML element. Closing tags have "/" inside them
+Attribute - Provide more information about an element's content. Usually live within the element's opening tag and made up of the following two parts:
+	The name of the attribute
+	The value of the attribute
+
+
+
+A web browser MUST know what language a document is written in before they can process the contents of the document.
+You can let a web browser know that you are using the HTML language by starting your HTML document with a document type declaration:
+	<!DOCTYPE html>
+This declaration MUST be the first line of code in all your HTML documents.
+Without it, HTML code can still work, however it is risky. The web browser can assume you are using a different version of HTML than what you are programming with.
+For example, your browser will correctly assume you are using HTML5, as it's the current standard. Future web browsers may assume you are using a different, newer standard.
+This will cause your document to be interpreted incorrectly. Avoid this by using the document type declaration.
+
+To begin adding HTML structure and content, we must first add an opening and closing html tags:
+	<html>
+	</html>
+Anything between the html tags will be considered HTML code. Without these tags, it's possible the browser can interpret your HTML code wrong and present content in unexpected ways.
+
+With a few exceptions, most elements consist of an opening and closing tag. For example:
+	<p>Hello World!</p>
+		<p> - opening tag
+		</p> - closing tag
+		<p>Hello World!</p> - element
+
+The <head> element will contain information about your page that isn't displayed directly on the actual web page.
+If you look at the top of your web browser, you will notice the title of the web page.
+The browser displays the title of the page because the title can be specified directly inside of the <head> element by using a <title> element.
+	<head>
+		<title>My Coding Journal</title>
+	</head>
+If we were to open a file containing the information above, the browser would display the words "My Coding Journal" in the title.
+
+Before we can add content that a browser can display, we have to ad a body to the HTML file.
+Once the file has a body, many different contents can be added within the body. Such as text, images, and buttons.
+The body is added after the head
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Hello World!</title>
+		</head>
+		<body>
+
+		</body>
+	</html>
+All the code above demonstrates what is sometimes refered to as "boilerplate code".
+The boilerplate code is used to describe the basic HTML code required to begin creating a web page.
+Without all the elements in the boilerplate code, you'll risk starting without the minimum requirements cosidered to be best practice.
+
+Let's review what you've learned so far:
+
+    1.The <!DOCTYPE html> declaration should always be the first line of code in your HTML files.
+    2.The <html> element will contain all of your HTML code.
+    3.Information about the web page, like the title, belongs within the <head> of the page.
+    4.You can add a title to your web page by using the <title> element, inside of the head.
+    5.Code for visible HTML content will be placed inside of the <body> element.
+
+Headings in HTML are similar to headings in articles.
+In HTML, there are 6 different heading elements. From largest to smallest:
+	<h1></h1>
+	<h2></h2>
+	...
+	<h6></h6>
+
+Headings are meant to emphasize or enlarge only a few words.
+If you want to add content in paragraph format, you can add a paragraph using the paragraph element:
+	<p></p>
+
+You can use the unordered list if you decide to format in bullet points.
+To create an unordered list, you can use the <ul> element.
+The <ul> element can't hold raw text or format text into bullet points.
+Individual items must be added to the unordered list using the <li> element.
+	<ul>
+		<li>Milk</li>
+		<li>Eggs</li>
+		<li>Bread</li>
+	</ul>
+
+You can create an ordered list that lists items using numbers by using the <ol> element.
+Individual items must be added using the <li> element.
+	<ol>
+		<li>Milk</li>
+		<li>Eggs</li>
+		<li>Bread</li>
+	</ol>
+
+You can add links to a web page by adding the anchor element <a> and including the text of the link between the tags:
+	<a>This is a link to Wikipedia</a>
+There is a problem with this link though, there is no URL.
+The anchor element is incomplete without the href attribute.
+Attributes consist of the name and value of the attribute. In this case, the name is href and value is the URL.
+	<a href="https://www.wikipedia.org">This is a link to Wikipedia</a>
+To have a link open in a new window, you must use the target attribute.
+The target attribute requires the value _blank, and can be added along with href
+	<a href="https://en.wikipedia.org" target="_blank">This is alink to Wikipedia</a>
+The target attribute would open new windows in older browsers. In modern browsers, it will open a new tab instead.
+
+You can add images using the <img> element.
+You don't need closing tags for <img> because <img> is a self closing element.
+	<img src="https://www.example.com/picture.jpg" />
+Note that the <img> element has a required attribute called "src", which is similar to the href attribute.
+In this case, the value of src must be the URL of the image.
+Also note that the end of the <img> element has a forward slash. This is required for a self closing element.
+You can add the alt attribute to an image.
+The alt attribute is a description of the image.
+	<img src="#" alt="A field of yellow sunflowers" />
+The alt attribute also serves two purposes:
+	If an image failes to load, the user can mouse over the area originally intended for the image and read the description.
+	A reading software can read out the image descritpion to the visually impaired.
+If the image does not convey any meaningful information, the alt attribute should not be used.
+
+Images may be used to provide hyperlinks on web pages instead of texts.
+HTML allows nearly any element to be turned into a link by wrapping that element with an anchor element.
+	<a href="https://en.wikipedia.org/wiki/Opuntia" target="_blank"><img src="#" alt="A red prickly pear fruit" /></a>
+
+Formatting the code in your file will not affect the positioning of elements within the browser.
+This is because the browser ignores whitespace in HTML files.
+Using white space is important, though, because it makes your code easy to read and follow.
+If you are interested in modifying the space in the browser, you can use the line break element <br />
+As you can see, the line break element is a self closing element.
+Line breaks are not the standard way of manipulating HTML elements, but it is an option.
+Indentation is used to better structure your HTML code.
+The current standard is two spaces for indentation.
+HTML files also allow you to add comments to your code.
+Comments begin with <!-- and end with -->
+Any characters in between will be treated as a comment and not ran as part of the code.
+Comments are useful for:
+	Helping to understand your code for you and others if you decide to come back and review it at a later time.
+	Experimenting with new code without having to delete old code.
+
+Let's review what you've learned so far:
+
+    1.You can add headings of different sizes using the different headings elements: <h1> through <h6>.
+    2.Paragraphs are added with the <p> element.
+    3.Unordered lists are created with the <ul> element and list items are added using the <li> element.
+    4.Ordered lists are created with the <ol> element and list items are added using the <li> element.
+    5.You can add links to your web page using the <a> element - don't forget the href attribute!
+    6.Images can be added with the <img> element - don't forget the src attribute!
+    7.Images help support visually impaired users when <img> elements include the alt attribute.
+    8.You can turn anything into a link by wrapping it with an <a> element.
+    9.White space in the HTML file does not affect the positioning of elements in the browser.
+    10.The W3C recommends 2 spaces of indentation for nested HTML elements.
+    11.Comments are used to take notes inside of an HTML file. You can add a comment with <!-- This is a comment -->.
+
